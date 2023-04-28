@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
 
 function App() {
+  const [tb, setTb] = useState();
+
+  const tbChangeHandler = (e) => {
+    setTb(e.target.value);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>TB to Bytes</h1>
+
+      <input
+        value={tb}
+        onChange={tbChangeHandler}
+        type="number"
+        placeholder="TB"
+      />
+
+      <p>
+        {tb
+          ? `${tb} TB = ${tb * 1024 * 1024 * 1024 * 1024} bytes`
+          : `Please Enter the value in TeraBytes`}
+      </p>
+
+      {tb ? (
+        <div>
+          <p className="sub-heading">Calculation</p>
+
+          <p>{`${tb} * 1024 * 1024 * 1024 * 1024 = ${
+            tb * 1024 * 1024 * 1024 * 1024
+          } bytes`}</p>
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }

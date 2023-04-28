@@ -2,9 +2,8 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.sub-heading {
+  font-weight: 800;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -35,4 +34,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
 }
